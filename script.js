@@ -8,6 +8,7 @@ const btnHold = document.querySelector('.btn--hold');
 const btnRoll = document.querySelector('.btn--roll');
 const victory = 10;
 for (let i = 0; i < totalScores.length; i++) totalScores[i].textContent = 0;
+dice.style.display = 'none';
 
 const playerFirst = {
   id: 0,
@@ -113,6 +114,7 @@ const playerSecond = {
 const whoIsActive = () => (playerFirst.isActive ? playerFirst : playerSecond);
 
 const reset = () => {
+  dice.style.display = 'none';
   playerFirst.makeReset();
   playerSecond.makeReset();
 };
@@ -138,6 +140,7 @@ const randomDice = () => {
 };
 
 const gameLogic = () => {
+  dice.style.display = 'block';
   const currentPlayer = whoIsActive();
   if (!currentPlayer.isWinner) {
     const currentScore = randomDice();
